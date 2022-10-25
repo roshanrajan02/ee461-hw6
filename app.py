@@ -19,16 +19,16 @@ def leaveProject(projectId):
         "message": "Left Project " + str(projectId)
     }
 
-@app.route('/check_in/<projectId>')
-def checkIn_hardware(projectId, qty):
+@app.route('/check_in/<projectId>/<hwSet>/<qty>')
+def checkIn_hardware(projectId, hwSet, qty):
     return {
-        "message": str(qty) + " checked in by Project " + str(projectId) 
+        "message": str(qty) + " checked in by Project " + str(projectId) + " to " + hwSet
     }
 
-@app.route('/check_out/<projectId>')
-def checkOut_hardware(projectId, qty):
+@app.route('/check_out/<projectId>/<hwSet>/<qty>')
+def checkOut_hardware(projectId, hwSet, qty):
     return {
-        "message": str(qty) + " checked out by Project " + str(projectId)
+        "message": str(qty) + " checked out by Project " + str(projectId) + " from " + hwSet
     }
 
 if __name__ == '__main__':

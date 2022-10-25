@@ -47,6 +47,53 @@ const Project = (props) => {
     })
   }
 
+  function checkInOutHardware(qty, isIn, hwSet) {
+    let updatedVal = 0
+
+    if (hwSet === "hwSet1") {
+      updatedVal = hwSet1Usage
+    }
+    else {
+      updatedVal = hwSet2Usage
+    }
+
+    if (isIn) {
+      updatedVal += qty
+      axios({
+        method: "GET",
+        url:`/check_in/${props.id}/${hwSet}/${qty}`,
+      }).then((response) => {
+        const res = response.data
+        alert(res.message)
+      }).catch((error) => {
+        console.log(error)
+      })
+    }
+    else {
+      updatedVal -= qty
+      axios({
+        method: "GET",
+        url:`/check_out/${props.id}/${hwSet}/${qty}`,
+      }).then((response) => {
+        const res = response.data
+        alert(res.message)
+      }).catch((error) => {
+        console.log(error)
+      })
+    }
+
+    if (hwSet === "hwSet1") {
+      setHwSet1Usage(updatedVal)
+    }
+    else {
+      setHwSet2Usage(updatedVal)
+    }
+    forceUpdate()
+
+  }
+
+
+
   return (
     <div id="mainproj" className="project-structure">
       <div className='project-details'>
@@ -61,8 +108,8 @@ const Project = (props) => {
           <div>HWSet2: {hwSet2Usage} / 100</div>
         </div>
         <div className="project-hwsets-btns">
-          <Buttons/>
-          <Buttons/>
+          <Buttons hwSet="hwSet1" onClick={checkInOutHardware}/>
+          <Buttons hwSet="hwSet2" onClick={checkInOutHardware}/>
         </div>
           {!added &&
             <Button className='project-join' onClick={addSampleUser}>Join</Button> 
