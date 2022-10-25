@@ -1,0 +1,21 @@
+.projects-main {
+    text-align: center;
+    border: solid #000;
+    border-width: 1px 1px;
+    width: 80vw;
+    height: 150vh;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.projects-body {
+    padding: 20px;
+}
+
+.projects-content {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 6rem;
+}

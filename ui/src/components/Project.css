@@ -1,0 +1,41 @@
+.project-structure {
+    width: 70vw;
+    height: 25vh;
+    border: solid #000;
+    border-width: 1px 1px;
+    margin: auto;
+}
+
+.project-details {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.project-name {
+    text-align: left;
+    padding: 50px 0px;
+}
+
+.project-users {
+    padding: 50px 0px;
+}
+
+.project-hwsets-btns {
+    padding: 8px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.project-join {
+    margin-top: 50px !important;
+    height: 30px;
+    width: 50px;
+    justify-items: center;
+}
+
+
+
